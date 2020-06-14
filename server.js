@@ -19,8 +19,8 @@ server.get('/', (req, res) => {
   res.send(welcomeMessage);
 })
 
-server.use('/users', userRouter)
-server.use('/posts', postRouter)
+server.use('/projects', projectRouter)
+server.use('/actions', actionRouter)
 server.use(errorHandler())
 
 module.exports = server;
