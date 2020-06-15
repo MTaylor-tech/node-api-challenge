@@ -1,5 +1,5 @@
 const express = require('express');
-const actions = require('../helpers/actionModel')
+const actions = require('../data/helpers/actionModel')
 const validateAction = require('../middleware/validateAction')
 const validateActionId = require('../middleware/validateActionId')
 
@@ -21,7 +21,7 @@ router.get('/:id', validateActionId(), (req, res, next) => {
     .catch(next)
 });
 
-router.delete('/:id', validatePostId(), (req, res, next) => {
+router.delete('/:id', validateActionId(), (req, res, next) => {
   actions.remove(req.params.id)
     .then(success=>{
       if (success===1) {

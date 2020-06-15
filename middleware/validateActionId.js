@@ -1,4 +1,4 @@
-const actions = require("../helpers/actionModel")
+const actions = require("../data/helpers/actionModel")
 
 module.exports = () => {
   return (req,res,next) => {

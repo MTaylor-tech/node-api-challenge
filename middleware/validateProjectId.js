@@ -1,4 +1,4 @@
-const projects = require("../helpers/projectModel")
+const projects = require("../data/helpers/projectModel")
 
 module.exports = () => {
   return (req,res,next) => {
