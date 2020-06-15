@@ -10,25 +10,12 @@ const ProjectBox = styled.div`
   color: white;
 `
 
-const H2= styled.h2`
-  color: white;
-  text-decoration: none;
-`
-
 const H1 = styled.h1`
   color: white;
   font-size: 2rem;
   text-align: center;
   `
 
-const AN = styled.span`
-  font-size: 1.4rem;
-`
-
-const AX = styled.span`
-  font-size: 1.4rem;
-  text-decoration: line-through;
-`
 
 const AL = styled.ol`
   text-align: left;
@@ -36,6 +23,8 @@ const AL = styled.ol`
 
 export default function Project(props) {
   const {id} = useParams()
+  const port = process.env.PORT || 4000;
+  const url = process.env.URL || 'http://localhost'
 
   const [project, setProject] = useState({
     id: id,
@@ -45,14 +34,14 @@ export default function Project(props) {
   })
 
   useEffect(()=>{
-    axios.get(`http://localhost:4000/projects/${parseInt(id)}`)
+    axios.get(`${url}:${port}/projects/${parseInt(id)}`)
       .then(res=>{
         setProject(res.data)
       })
       .catch(err=>{
         console.log(err)
       })
-  },[id])
+  },[id,port,url])
 
   return (
      <ProjectBox>

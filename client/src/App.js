@@ -16,15 +16,18 @@ const AppDiv = styled.div`
 function App(props) {
   const [projects, setProjects] = useState([])
 
+  const port = process.env.PORT || 4000;
+  const url = process.env.URL || 'http://localhost'
+
   useEffect(()=>{
-    axios.get('http://localhost:4000/projects')
+    axios.get(`${url}:${port}/projects`)
       .then(res=>{
         setProjects(res.data)
       })
       .catch(error=>{
         console.log(error)
       })
-  },[])
+  },[port,url])
 
   return (
     <Router history={props.history}>

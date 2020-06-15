@@ -1,6 +1,5 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import {Link} from 'react-router-dom'
-import axios from 'axios'
 import styled from 'styled-components'
 
 const ProjectBox = styled.div`
@@ -30,7 +29,7 @@ export default function ProjectList(props) {
       <H1>Projects</H1>
       <PL>
         {props.projects.map(project=>{
-          return <li><Link to={`/projects/${project.id}`}><H2>{project.name}</H2></Link></li>
+          return <li key={project.id}><Link to={`/projects/${project.id}`}><H2>{project.name}</H2></Link></li>
         })}
       </PL>
     </ProjectBox>
