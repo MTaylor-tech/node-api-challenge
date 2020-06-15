@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {useParams, Link} from 'react-router-dom'
 import axios from 'axios'
 import styled from 'styled-components'
+import Action from './Action'
 
 
 const ProjectBox = styled.div`
@@ -52,23 +53,12 @@ export default function Project(props) {
   return (
      <ProjectBox>
        <H1>{project.name}</H1>
+       <Link to="/">Projects</Link>
        <p>{project.description}</p>
        <ol>
          {project.actions.map(a=>{
-           console.log(`${a.description} is ${a.completed}`)
-           if (!a.completed) {
-             return (
-               <li>
-                 <AN>{a.description}</AN>
-                 <p>{a.notes}</p>
-               </li>)
-           } else {
-             return (
-               <li>
-                 <AX>{a.description}</AX>
-               </li>
-             )
-           }})}
+           return <Action a={a} key={a.id} />
+          })}
       </ol>
      </ProjectBox>
   )
