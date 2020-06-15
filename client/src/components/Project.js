@@ -30,6 +30,10 @@ const AX = styled.span`
   text-decoration: line-through;
 `
 
+const AL = styled.ol`
+  text-align: left;
+`
+
 export default function Project(props) {
   const {id} = useParams()
 
@@ -55,11 +59,11 @@ export default function Project(props) {
        <H1>{project.name}</H1>
        <Link to="/">Projects</Link>
        <p>{project.description}</p>
-       <ol>
+       <AL>
          {project.actions.map(a=>{
            return <Action a={a} key={a.id} />
           })}
-      </ol>
+      </AL>
      </ProjectBox>
   )
 }

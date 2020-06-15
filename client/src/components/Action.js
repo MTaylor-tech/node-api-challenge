@@ -3,11 +3,11 @@ import {useParams, Link} from 'react-router-dom'
 import axios from 'axios'
 import styled from 'styled-components'
 
-const AN = styled.span`
+const AN = styled.h3`
   font-size: 1.4rem;
 `
 
-const AX = styled.span`
+const AX = styled.h3`
   font-size: 1.4rem;
   text-decoration: line-through;
 `
