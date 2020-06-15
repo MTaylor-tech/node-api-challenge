@@ -35,11 +35,12 @@ router.get('/', (req, res, next) => {
 });
 
 router.get('/:id', validateProjectId(), (req, res, next) => {
-  db.get(req.params.id)
-    .then(project=>{
-      return res.status(200).json(project)
-    })
-    .catch(next)
+  return res.status(200).json(req.project)
+  // projects.get(req.params.id)
+  //   .then(project=>{
+  //     return res.status(200).json(project)
+  //   })
+  //   .catch(next)
 });
 
 router.get('/:id/actions', validateProjectId(), (req, res, next) => {

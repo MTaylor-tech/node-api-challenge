@@ -14,11 +14,7 @@ router.get('/', (req, res, next) => {
 });
 
 router.get('/:id', validateActionId(), (req, res, next) => {
-  actions.get(req.params.id)
-    .then(action=>{
-      return res.status(200).json(action)
-    })
-    .catch(next)
+  return res.status(200).json(req.action)
 });
 
 router.delete('/:id', validateActionId(), (req, res, next) => {
@@ -34,7 +30,7 @@ router.delete('/:id', validateActionId(), (req, res, next) => {
 });
 
 router.put('/:id', validateActionId(), validateAction(), (req, res, next) => {
-  db.update(req.params.id,req.body)
+  actions.update(req.params.id,req.body)
     .then(action=>{
       return res.status(200).json(action)
     })
