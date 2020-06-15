@@ -19,12 +19,15 @@ function projectToBody(project) {
     completed: intToBoolean(project.completed),
   };
 
-  if (project.actions) {
-    result.actions = project.actions.map(action => ({
-      ...action,
-      completed: intToBoolean(action.completed),
-    }));
-  }
+  // if (project.actions) {
+  //   result.actions = project.actions.map(action => (
+  //     actionToBody(action)
+  //   //   {
+  //   //   ...action,
+  //   //   completed: intToBoolean(action.completed),
+  //   // }
+  // ));
+  //}
 
   return result;
 }
